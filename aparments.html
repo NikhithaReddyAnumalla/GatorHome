@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+        <link rel="stylesheet" href="hai.css">    
+        <title>Swamp Apartments</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <div class="btn" id="fliterButton">
+            <a href="#" class="navbar-brand" id="navbarlogo">
+                Filters
+            </a>
+            <span class="navbar-toggler-icon"></span>
+        </div>
+        <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarr">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="#" class="navbar-brand" id="navbarlogo">
+                Swamp Apartments
+            </a>
+            <div class="collapse navbar-collapse d-md-inline" id="navbarr">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                <a href="feedback.html" class="nav-link">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div class="row my-2">
+            <div class="col-3" id="filtersDisplay" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                     <h2 id="movie-name-head">Filters</h2>
+                    </div>
+                    <div class="card-body p-0 exp">
+                      <ul class="list-group pl-0">
+                        <li class="list-group-item" id="list-item-1">
+                            <div class="d-flex justify-content-between">
+                                <div class="list-movie list-content-1" style="overflow-x:hidden;">
+                                    <p class="h5">Price Range
+                                         <span style="margin-left: 1rem;cursor: pointer;" data-toggle="collapse" href="#priceRange" role="button" aria-expanded="false" aria-controls="priceRange">
+                                            <i class="fa fa-angle-down" aria-hidden="true" style="height: 0.5rem;"></i>
+                                        </span>
+                                        <button type="button" class="btn btn-sm" style="margin-left: 2.5rem;"
+                                         onclick="clearFilter('priceRange')">Clear</button>
+                                    </p>
+                                    <div class="collapse" id="priceRange">
+                                        <div class="row">
+                                            <div class="input-group col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">min</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="priceRangeMin" aria-label="Amount (to the nearest dollar)">
+                                            </div>
+                                            <div class="input-group col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">max</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="priceRangeMax" aria-label="Amount (to the nearest dollar)">
+                                            </div>
+                                        </div>  
+                                        <p class="small">Enter price range</p> 
+                                    </div>
+                                </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item" id="list-item-2">
+                            <div class="d-flex justify-content-between">
+                                <div class="list-movie list-content-1" style="overflow-x:hidden;">
+                                    <p class="h5">Number of Bed Rooms
+                                         <span style="margin-left: 1rem;cursor: pointer;" data-toggle="collapse" href="#roomCount" role="button" aria-expanded="false" aria-controls="roomCount">
+                                            <i class="fa fa-angle-down" aria-hidden="true" style="height: 0.5rem;"></i>
+                                        </span>
+                                        <button type="button" class="btn btn-sm" onclick="clearFilter('beds')" style="margin-left: 1rem;">Clear</button>
+                                    </p>
+                                    <div class="collapse" id="roomCount">
+                                        <div class="row">
+                                            <div class="input-group col-5">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">min</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="bedsMin" aria-label="Amount (to the nearest dollar)">
+                                            </div>
+                                            <div class="input-group col-5">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">max</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="bedsMax" aria-label="Amount (to the nearest dollar)">
+                                            </div>
+                                        </div>    
+                                        <p class="small">Enter number of number of bed rooms</p>
+                                    </div>
+                                </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item" id="list-item-3">
+                            <div class="d-flex justify-content-between">
+                                <div class="list-movie list-content-1" style="overflow-x:hidden;">
+                                    <p class="h5">Number of Bath Rooms
+                                         <span style="margin-left: 1rem;cursor: pointer;" data-toggle="collapse" href="#bathCount" role="button" aria-expanded="false" aria-controls="bathCount">
+                                            <i class="fa fa-angle-down" aria-hidden="true" style="height: 0.5rem;"></i>
+                                        </span>
+                                        <button type="button" class="btn btn-sm" onclick="clearFilter('baths')" style="margin-left: 0.5rem;">Clear</button>
+                                    </p>
+                                    <div class="collapse" id="bathCount">
+                                        <div class="row">
+                                            <div class="input-group col-5">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">min</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="bathsMin" aria-label="Amount (to the nearest dollar)">
+                                            </div>
+                                            <div class="input-group col-5">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">max</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="bathsMax" aria-label="Amount (to the nearest dollar)">
+                                            </div>
+                                        </div>    
+                                        <p class="small">Enter number of number of bath rooms</p>
+                                    </div>
+                                </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item" id="list-item-4">
+                            <div class="d-flex justify-content-between">
+                                <div class="list-movie list-content-1" style="overflow-x:hidden;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="height: 1rem;width: 1rem;" type="checkbox" value="ind"
+                                         id="applicationFee" >
+                                        <label class="form-check-label h5" for="applicationFee">
+                                             Application Fee
+                                        </label>
+                                        <button type="button" class="btn btn-sm" onclick="clearFilter('applicationFee')"  style="margin-left: 2.5rem;">Clear</button>
+                                      </div>
+                                </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item" id="list-item-5">
+                            <div class="d-flex justify-content-between">
+                                <div class="list-movie list-content-1" style="overflow-x:hidden;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="height: 1rem;width: 1rem;" type="checkbox" value="ind" id="swimmingPool" >
+                                        <label class="form-check-label h5" for="swimmingPool">
+                                             Swimming Pool
+                                        </label>
+                                        <button type="button" class="btn btn-sm" onclick="clearFilter('swimmingPool')"  style="margin-left: 2.5rem;">Clear</button>
+                                      </div>
+                                </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item" id="list-item-6">
+                            <div class="d-flex justify-content-between">
+                                <div class="list-movie list-content-1" style="overflow-x:hidden;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="height: 1rem;width: 1rem;" type="checkbox" value="ind" id="gym" >
+                                        <label class="form-check-label h5" for="gym">
+                                             Gym
+                                        </label>
+                                        <button type="button" class="btn btn-sm" onclick="clearFilter('gym')" style="margin-left: 2.5rem;">Clear</button>
+                                      </div>
+                                </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item" id="list-item-7">
+                            <div class="d-flex justify-content-between">
+                                <div class="list-movie list-content-1" style="overflow-x:hidden;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="height: 1rem;width: 1rem;" type="checkbox" value="ind" id="laundry" >
+                                        <label class="form-check-label h5" for="laundry">
+                                            Laundry Services
+                                        </label>
+                                        <button type="button" class="btn btn-sm" onclick="clearFilter('laundry')" style="margin-left: 2.5rem;">Clear</button>
+                                      </div>
+                                </div>
+                           </div>
+                        </li>
+                        <li class="list-group-item" id="list-item-8">
+                            <div class="list-movie list-content-1" style="overflow-x:hidden;">
+                                <button type="button" class="btn btn-primary" style="width: 100%;" onclick="applyFilters()">Apply Filters</button>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>   
+            </div>
+            <div class="col-12" id="aparmentsDisplay">
+                <!-- <div class="row" id="apartmentsRow">
+                    <div class="col-3" id="movie-image-1">
+                        <div class="card colla">
+                            <img src="https://ar.rdcpix.com/334811741eba9a5cb7ce2d9dd63ee5f8c-f2337989261s-w1024_h768.jpg" id="card_img_1" class="card-img">
+                        </div>
+                        <p class="h5" id="movie-name" style="font-family: oswald;">Niche Apartments</p>
+                        <p class="h5" style="font-family: oswald;">$ 750</p>
+                        <p style="font-family: oswald;">4000 SW 37TH Blvd</p>
+                        <div class="stars-outer">
+                        <div class="stars-inner" id="h1star">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-3" id="movie-image-1">
+                        <div class="card colla">
+                            <img src="https://ar.rdcpix.com/46e1dfa56150c5fda8b2ed0d3b371d83c-f1088602714s-w1024_h768.jpg"
+                            id="card_img_2"  class="card-img">
+                        </div>
+                        <p class="h5" id="movie-name" style="font-family: oswald;">BHHS Florida Realty Gainesville Rental Division</p>
+                        <div class="stars-outer">
+                        <div class="stars-inner" id="h1star">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-3" id="movie-image-1">
+                        <div class="card colla">
+                            <img src="https://ar.rdcpix.com/0dc168b76ba488308acac82360f19054c-f374527877s-w1024_h768.jpg"
+                            id="card_img_3"  class="card-img">
+                        </div>
+                        <p class="h5" id="movie-name" style="font-family: oswald;">Niche Apartments</p>
+                        <div class="stars-outer">
+                        <div class="stars-inner" id="h1star">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-3" id="movie-image-1">
+                        <div class="card colla">
+                            <img src="https://ar.rdcpix.com/46e1dfa56150c5fda8b2ed0d3b371d83c-f1088602714s-w1024_h768.jpg"
+                            id="card_img_4"  class="card-img">
+                        </div>
+                        <div class="card" style="margin-top: -10px;z-index: -1;">
+                            <div class="card-body">
+                              <h5>HHS Florida Realty Gainesville Rental Division</h5>
+                              <p class="small" style="margin-top: -8px;">4000 SW 37TH Blvd</p>
+                              <h5 style="margin-top: -12px;">$ 750</h5>
+                              <ul class="nav">
+                                <li class="nav-item mx-1">
+                                    <b>1</b> bed
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <b>1</b> bath
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <b>100</b> sqft
+                                </li>
+                                <li class="nav-item mx-1">
+                                    Pets <b>ok</b>
+                                </li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js">
+        </script>
+        <script src="aparments.js"></script>
+        <!-- <script type="module" src="./jsons/allTheData.json"></script> -->
+        </body>
+</html>
