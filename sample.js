@@ -1,10 +1,10 @@
 const axios=require('axios')
-let config = {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer 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"
-    }
-  };
+//let config = {
+//   headers: {
+//      "Content-Type": "application/json",
+//      "Authorization": "Bearer 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"
+//    }
+//  };
   let body= JSON.stringify({
     "model": "text-davinci-003",
     "prompt": "hey bro",
